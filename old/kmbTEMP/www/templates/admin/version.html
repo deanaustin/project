@@ -1,0 +1,42 @@
+<ion-view>
+  
+  <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+
+    </ion-header-bar>    
+    
+
+  <ion-content>
+    
+    <ion-item ng-init = "ver">
+       <div class="list list-inset">
+            <label class="item item-input">
+                <input ng-model="ver" type="text" placeholder="Ver" />
+            </label>
+           
+        </div>
+        
+      </label>
+      <a class="button button-full button-stable" ng-click="removeSupport(ver)">Remove support</a>
+      <a class="button button-full button-stable" ng-click="giveSupport(ver)">Give support</a>
+    </ion-item>
+  </ion-content>
+  
+
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

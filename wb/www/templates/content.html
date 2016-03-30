@@ -1,0 +1,51 @@
+<ion-view>
+    
+     <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+      <h1 class="title">${{stockView.total}}</h1>
+      <div class="buttons">
+        <a class="button" ng-click="removeCustom()">Delete</a>
+      </div>
+      
+    </ion-header-bar>    
+    
+    <ion-content>
+     
+
+        <div ng-repeat="option in stockView.option | orderBy:'order' track by $index">
+             {{option.name}}
+         <div class="row">
+            <div class="col">
+                <ion-item class="no-padding item-text-wrap item-full"  ng-init = "show.yes = item.include" ng-repeat="item in option.item | orderBy:'order' track by $index" >
+                    <div ng-if="show.yes == true" >
+                        <ion-checkbox ng-model="item.include" ng-click="toggleItem(item, {yes:true});">
+                             {{item.name}} 
+                        </ion-checkbox>
+                    </div>
+                </ion-item>
+            </div>
+          </div>
+        </div>
+    
+        
+    </ion-content>
+    
+    
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+

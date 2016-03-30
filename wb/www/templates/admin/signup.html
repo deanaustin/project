@@ -1,0 +1,40 @@
+<ion-view>
+    <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+
+    </ion-header-bar>    
+    
+
+    <ion-content>
+        <div>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input ng-model="newVend.firstName" type="text" placeholder="First Name" />
+                </label>
+                <label class="item item-input">
+                    <input ng-model="newVend.lastName" type="text" placeholder="Last Name" />
+                </label>
+                <label class="item item-input">
+                    <input ng-model="newVend.phone" type="text" placeholder="Phone" />
+                </label>
+                <label class="item item-input">
+                    <input ng-model="newVend.address" type="text" placeholder="Address" />
+                </label>
+                <label class="item item-input">
+                    <input ng-model="newVend.suburb" type="text" placeholder="Suburb" />
+                </label>
+                <label class="item item-input">
+                    <input ng-model="newVend.postcode" type="text" placeholder="Postcode" />
+                </label>
+            </div>
+            <div class="list list-inset">
+                <a class="button button-full button-royal" ng-click="register()">Sign up</a>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>
+

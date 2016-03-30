@@ -1,0 +1,64 @@
+<ion-view>
+    
+    <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+
+    </ion-header-bar>    
+    
+
+  <ion-content>
+    <ion-item>
+      <a class="button button-full button-stable" ng-click="clearTime()">Clear</a>
+    </ion-item>
+    
+    <ion-item ng-init = "timeSetting = {plusHrs: 12, periodMin: 60, countPeriod: 12, countDay: 2}">
+       <div class="list list-inset">
+            <label class="item item-input">
+                <input ng-model="timeSetting.plusHrs" type="text" placeholder="plus hrs" />
+            </label>
+            <label class="item item-input">
+                <input ng-model="timeSetting.periodMin" type="text" placeholder="period min" />
+            </label>
+            <label class="item item-input">
+                <input ng-model="timeSetting.countPeriod" type="text" placeholder="count period" />
+            </label>
+            <label class="item item-input">
+                <input ng-model="timeSetting.countDay" type="text" placeholder="count day" />
+            </label>
+        </div>
+        
+      </label>
+      <a class="button button-full button-stable" ng-click="addTime(timeSetting.plusHrs, timeSetting.periodMin, timeSetting.countPeriod, timeSetting.countDay)">Add Time</a>
+    </ion-item>
+  </ion-content>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

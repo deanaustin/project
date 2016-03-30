@@ -1,0 +1,59 @@
+<ion-view view-title="">
+
+<ion-header-bar align-title="center" class="bar-stable">
+   <a class="button button-icon icon ion-navicon" ui-sref="app.menu"></a>
+
+  <h1 class="title">Store</h1>
+
+</ion-header-bar>
+
+//this is a test
+<ion-content>
+
+
+            <div class="list no-padding"  show-reorder="true">
+
+          <ion-item class="no-padding item-text-wrap"  ng-repeat="(key, value) in vendList track by $index"  >
+
+
+              <div class="row row-center" >
+
+                <div class="col" >
+                    {{value.address}} {{value.suburb}}
+                </div>
+                
+                <div class="col-1" ng-click="initVend({{key}})">
+                   <a class="button button-light ion-chevron-right"></a>
+                </div>
+
+              </div>
+
+        </ion-item>
+
+    </div>
+
+
+          <div class="row" style="text-align: center; word-wrap: break-word;">
+            <div class="col">
+
+             wrapbuild &copy; 2016
+
+            </div>
+          </div>
+
+</ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

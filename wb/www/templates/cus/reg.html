@@ -1,0 +1,50 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-stable">
+        <a class="button button-icon icon ion-arrow-left-c" ng-click="goLogin()"></a>
+         <h1 class="title">Register</h1>
+    </ion-header-bar>    
+
+    <ion-content>
+        
+        <label class="item item-input">
+            <input ng-model="phoneRegInfo.firstName" type="text" placeholder="First Name" />
+        </label>
+        <label class="item item-input">
+            <input ng-model="phoneRegInfo.lastName" type="text" placeholder="Last Name" />
+        </label>
+        <label class="item item-input">
+            <input ng-model="phoneRegInfo.phone" type="text" placeholder="Mobile or Landline" />
+        </label>
+      
+        <div ng-if="valid === false" class="row" style="color: red; text-align: center; word-wrap: break-word;">
+            <div class="col">
+                 Oops.. try again 
+            </div>
+        </div>
+        
+        <div class="no-padding">
+          <a class="button button-full button-stable"  ng-click="phoneReg(phoneRegInfo.firstName, phoneRegInfo.lastName, phoneRegInfo.phone)">Create Account</a>
+        </div>
+    
+        
+        <div class="row" style="text-align: center; word-wrap: break-word;">
+            <div class="col">
+                 wrapbuild &copy; 2016
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

@@ -1,0 +1,36 @@
+<ion-view>
+  
+    <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+
+      
+    </ion-header-bar>    
+  
+    <ion-content>
+        
+          <ion-item class="item-text-wrap" ng-click="newOrder.method = 'In-store'" ui-sref="app.main.confirm" >
+              In-store
+          </ion-item>
+           <ion-item class="item-text-wrap" ng-click="newOrder.method = 'Online'; goToPay()">
+              Online
+          </ion-item>
+          
+          
+    </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

@@ -1,0 +1,96 @@
+<ion-view>
+    
+    <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+      <h1 class="title"></h1>
+      <div class="buttons">
+        <a class="button" ng-click="removeOrder()">Cancel</a>
+      </div>
+      
+    </ion-header-bar>    
+    
+    
+<ion-content>
+    
+        <div class="list no-padding">
+            
+         <ion-item class="no-padding item-text-wrap">  
+       <div class="row row-center" >
+            <div class="col">
+                Total: <span style="color:green">${{viewOrder.total}}</span>
+            </div>
+          </div>
+       <div class="row row-center" >
+            <div class="col">
+                Order No: {{viewOrder.reference}}
+            </div>
+          </div>
+           
+         
+          <div class="row row-center" >
+            <div class="col" ng-if="viewOrder.ms != 9999999999999">
+                  When: {{viewOrder.ms | date:'EEE h mm a'}}
+              </div>
+              <div class="col" ng-if="viewOrder.ms == 9999999999999">
+                  When: Now
+              </div>
+          </div>
+        
+        </ion-item> 
+      
+        
+        <ion-item class="no-padding item-text-wrap" ng-if="x.qty != 0" ng-init="outerIndex=$index; show.yes = false"  ng-repeat="x in viewOrder.customList track by $index| orderBy:'-order'"  >
+            <div >
+            
+              <div class="row row-center" >
+              
+                <div class="col" ng-click="viewStockOrder(x)">
+                    {{x.custom}} - {{x.stock}}
+                </div>
+                
+             
+             
+              
+              </div>
+              <div class="row row-center" >
+              
+                <div class="col" ng-click="viewStockOrder(x)">
+                    Qty: {{x.qty}}
+                </div>
+                
+        
+              
+              </div>
+        </div>
+        </ion-item>
+        
+        
+   
+        
+        
+     
+    
+        
+    </div>
+   
+  
+   
+
+</ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

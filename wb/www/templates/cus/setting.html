@@ -1,0 +1,53 @@
+<ion-view view-title="">
+    
+<ion-header-bar align-title="center" class="bar-stable">
+    
+    
+ 
+  
+</ion-header-bar>    
+    
+  
+<ion-content>
+    
+    <ion-item class="no-padding item-text-wrap">
+      <a class="button button-icon icon ion-compose" ui-sref="app.menu.main">  Main</a>
+    </ion-item>
+    
+    <ion-item class="no-padding item-text-wrap" ng-if="allowPay === true">
+      <a class="button button-icon icon ion-home" ui-sref="app.menu.main.store">  Store</a>
+    </ion-item>
+    
+    <ion-item class="no-padding item-text-wrap" ng-if="allowPay === true">
+      <a class="button button-icon icon ion-information" ui-sref="app.menu.info">  Info</a>
+    </ion-item>
+            
+    <ion-item class="no-padding item-text-wrap" ng-click="logout()" ng-if="authData.password">
+      <a class="button button-icon icon ion-log-out">  Log out</a>
+    </ion-item>
+    
+        
+        
+        <div class="row" style="text-align: center; word-wrap: break-word;">
+            <div class="col">
+      
+             wrapbuild &copy; 2016
+              
+            </div>
+          </div>   
+
+</ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

@@ -1,0 +1,61 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-stable">
+         <h1 class="title">Wrapbuild</h1>
+    </ion-header-bar>    
+
+    <ion-content>
+        
+        <label class="item item-input">
+            <input ng-model="userInfoLogin.phone" type="text" placeholder="phone" />
+        </label>
+        <div ng-if="newRego === true">
+            <label class="item item-input">
+                <input ng-model="userInfoLogin.email" type="text" placeholder="name@example.com" />
+            </label>
+            
+            <label class="item item-input">
+                <input ng-model="userInfoLogin.password" type="password" placeholder="password" />
+            </label>
+        </div>
+        
+        <div ng-if="valid === false" class="row" style="color: red; text-align: center; word-wrap: break-word;">
+            <div class="col">
+                 Oops.. try again 
+            </div>
+        </div>
+        
+        <div class="no-padding">
+          <a class="button button-full button-positive"  ng-click="login()">Log in</a>
+        </div>
+            
+            <div class="item-text-wrap row" style="text-align: center; word-wrap: break-word;">
+                <div class="row">
+                    <div class="col">
+                        Not a member?<span style="color: blue" ng-click="goReg()"> Register today!</span><span> | 205 King Street Hamilton VIC 3300</span>
+                    </div>
+                </div> <!-- ;lskfs;ldkfs;dfs;'d -->
+            </div>
+            
+   
+        
+        <div class="row" style="text-align: center; word-wrap: break-word;">
+            <div class="col">
+                 wrapbuild &copy; 2016
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

@@ -1,0 +1,40 @@
+<ion-view view-title="Admin - Order">
+    
+    <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+
+    </ion-header-bar>    
+    
+
+  <ion-content>
+        
+        <div class="list no-padding" show-reorder="true">
+              <ion-item class="no-padding item-text-wrap" ng-init="show.yes=false" ng-if="x.ms == 9999999999999 && (x.done === 'Picked-Up' || x.done === 'Cancel')" ng-repeat="x in archive | orderBy:'order'"  >
+            
+            <div test></div>
+      
+            
+          </ion-item>
+          
+          
+          
+                  <ion-item class="no-padding item-text-wrap" ng-init="show.yes=false" ng-if="x.ms != 9999999999999 && (x.done === 'Picked-Up' || x.done === 'Cancel')" ng-repeat="x in archive | orderBy:'ms'"  >
+            
+      <div test></div>
+            
+          </ion-item> 
+          
+          
+          
+          
+       
+        </div>
+  </ion-content>
+
+</ion-view>
+
+
+

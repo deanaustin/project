@@ -1,0 +1,98 @@
+<ion-view>
+    
+    <ion-header-bar align-title="center" class="bar-stable">
+  
+      <a class="button button-icon icon ion-arrow-left-c" ng-click="parentGo()"></a>
+      <h1 class="title">${{newOrder.total}}</h1>
+
+
+      
+    </ion-header-bar>    
+    
+    
+    <ion-content>
+
+        
+  
+       
+        <ion-item class="no-padding item-text-wrap"  ng-if="newOrder.ms == 9999999999999">
+            <div class="row">
+                <div class="col">
+                    When:<span style="color:red"> Now</span>
+                </div>
+                <div class="col-1" >
+                    <a class="button button-light ion-edit" ng-click="timeGo()"></a>
+                </div>
+            </div>
+        </ion-item>
+        <ion-item class="no-padding item-text-wrap"  ng-if="newOrder.ms != 9999999999999">
+            <div class="row">
+                <div class="col">
+                     When:<span style="color:red"> {{newOrder.ms | date:'EEE h mm a'}}</span>
+                </div>
+                <div class="col-1" >
+                    <a class="button button-light ion-edit" ui-sref="app.menu.main.confirm.time"></a>
+                </div>
+            </div>
+           
+        </ion-item>
+        <ion-item class="no-padding item-text-wrap" > 
+            <div class="row">
+                <div class="col">
+                     Order No:<span style="color:red"> {{newOrder.reference}}</span>
+                </div>
+                <div class="col-1" >
+                    <a class="button button-light ion-edit" ui-sref="app.menu.main.confirm.reference"></a>
+                </div>
+            </div>
+            
+        </ion-item>
+        <ion-item class="no-padding item-text-wrap" ng-if="allowPay === true"> 
+            <div class="row">
+                <div class="col">
+                     Payment: <span style="color:red" ng-if="newOrder.method">Online</span><span style="color:red" ng-if="!newOrder.method">In-store</span>
+                </div>
+                <div class="col-1" >
+                    <a class="button button-light ion-edit" ui-sref="app.menu.main.confirm.payment"></a>
+                </div>
+            </div>
+            
+        </ion-item>
+        
+        <form id="checkout">
+            <div id="payment-form"></div>
+  
+          <a  ng-if="allowPay === true && disablePay === false" class="button button-full button-stable" ng-click="verifyProfile(true)">Submit</a>
+          <input id="submitButton" ng-show="false" type="submit" value="submit" />
+        </form>
+
+        <a class="button button-full button-stable" ng-if="!newOrder.method || allowPay === false" ng-click="verifyProfile(false)">Submit</a>
+        
+
+         
+             <div class="row" style="text-align: center; word-wrap: break-word;">
+            <div class="col">
+      
+             wrapbuild &copy; 2016
+              
+            </div>
+          </div>
+
+
+        
+    </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+

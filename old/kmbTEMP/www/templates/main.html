@@ -1,0 +1,84 @@
+<ion-view view-title="">
+    
+<ion-header-bar align-title="left" class="bar-stable">
+  
+  <div class="buttons">
+    <a class="button" ng-click="logout()">Log out</a>
+  </div>
+  <h1 class="title"></h1>
+  <div class="buttons">
+    <a class="button" ui-sref="app.main.new">New</a>
+  </div>
+  
+</ion-header-bar>    
+    
+  
+<ion-content>
+ 
+            <div class="list no-padding" show-reorder="true">
+          
+        
+                <ion-item class="no-padding" >
+          
+        
+          <div class="no-padding"  ng-repeat="x in orders | orderBy:'order'" ng-if="x.done != 'Picked-Up' && x.done != 'Cancel'" >
+             
+            <a class="button button-full button-calm"  ng-click="assignViewOrder(x);" ng-class="{'button button-full button-calm': x.done === 'Order', 'button button-full button-royal': x.done === 'Preparing', 'button button-full button-assertive': x.done === 'Ready',  'button button-full button-balanced': x.done === 'Picked-Up',  'button button-full button-dark': x.done === 'Cancel'}">{{x.done}}</a>
+    
+          </div>
+          
+            
+          </ion-item>
+          
+         
+         
+       
+  
+              
+          <ion-item class="no-padding item-text-wrap"  ng-init="outerIndex=$index; show.yes = false"  ng-repeat="x in newOrder.customList track by $index| orderBy:'-order'"  >
+            
+            
+              <div class="row row-center" >
+              
+                <div class="col" ng-click="viewStock(x)">
+                    <span ng-hide="x.custom === '' || x.custom === null">{{x.custom}} | </span>{{x.stock}}
+                </div>
+                
+                 
+     
+                <div style="color:green" ng-hide="x.qty == 0" class="col-1">
+                    {{x.qty}}
+                </div>
+                
+                <div class="col-1" ng-click="deductMain(x)">
+                   <a class="button button-light ion-minus"></a>
+                </div>
+                
+                <div class="col-1" ng-click="addMain(x)">
+                   <a class="button button-light ion-plus"></a>
+                </div>
+       
+              </div>
+            
+        </ion-item>
+         
+          <a class="button button-stable button-full" ng-click="confirm()">Checkout</a>
+      
+        
+    </div>
+
+</ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

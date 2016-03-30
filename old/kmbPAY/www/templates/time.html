@@ -1,0 +1,35 @@
+<ion-view>
+  
+    <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+
+      
+    </ion-header-bar>    
+  
+    <ion-content>
+        
+            <ion-item class="item-text-wrap" ng-click="newOrder.ms = 9999999999999" ui-sref="app.main.confirm" >
+              Now
+          </ion-item>
+          <ion-item class="item-text-wrap" ng-repeat="x in timeSelect" ng-if="x.ms > currentTime" ng-click="newOrder.ms = x.ms; confirm()">
+              {{x.ms | date:'EEE h mm a'}}
+          </ion-item>
+          
+    </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

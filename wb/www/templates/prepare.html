@@ -1,0 +1,102 @@
+<ion-view>
+    
+    <ion-header-bar align-title="left" class="bar-stable">
+        
+        
+  
+      <a class="button button-icon icon ion-arrow-left-c" ng-click="parentGo()"></a>
+      <h1 class="title">Order</h1>
+      <a class="button button-icon icon ion-close" ng-click="removeOrder()"></a>
+      
+    </ion-header-bar>    
+    
+    
+<ion-content>
+    
+        <div class="list no-padding">
+            
+         <ion-item class="no-padding item-text-wrap">  
+       <div class="row row-center" >
+            <div class="col">
+                Total: <span style="color:blue">${{viewOrder.total}}</span>
+            </div>
+          </div>
+       <div class="row row-center" >
+            <div class="col">
+                Order No:<span style="color:red"> {{viewOrder.reference}}</span>
+            </div>
+          </div>
+           
+         
+          <div class="row row-center" >
+            <div class="col" ng-if="viewOrder.ms != 9999999999999">
+                  When:<span style="color:red"> {{viewOrder.ms | date:'EEE h mm a'}}</span>
+              </div>
+              <div class="col" ng-if="viewOrder.ms == 9999999999999">
+                   When:<span style="color:red"> Now</span>
+              </div>
+          </div>
+        
+        </ion-item> 
+      
+        
+        <ion-item class="no-padding item-text-wrap" ng-if="x.qty != 0" ng-init="outerIndex=$index; show.yes = false"  ng-repeat="x in viewOrder.customList | orderBy:'order' track by $index"  >
+            <div >
+            
+              <div class="row row-center" >
+              
+                <div class="col" ng-click="viewStockOrder(x)">
+                    <span style="color:purple">{{x.custom}}</span> {{x.stock}}
+                </div>
+                
+             
+             
+              
+              </div>
+              <div class="row row-center" >
+              
+                <div class="col" ng-click="viewStockOrder(x)">
+                    Qty: <span style="color:green">{{x.qty}}</span>
+                </div>
+                
+        
+              
+              </div>
+        </div>
+        </ion-item>
+        
+        
+   
+        
+        
+     
+    
+        
+    </div>
+    
+     <div class="row" style="text-align: center; word-wrap: break-word;">
+            <div class="col">
+      
+             wrapbuild &copy; 2016
+              
+            </div>
+          </div>
+   
+  
+   
+
+</ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

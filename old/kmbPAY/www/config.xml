@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.foobar.kingmilkbar"
+    versionCode = "12" 
+    version     = "1.0.2" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>KingMilkBar</name>
+
+    <description>
+      Trial order app.
+    </description>
+
+    <author href="http://www.foobar.com.au" email="admin@foobar.com.au">
+      Dean Austin
+    </author>
+    
+    <icon src="kingmilkbar.png" />
+    <content src="index.html"/>
+    
+    <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
+ 
+    
+    <!--<preference name="android-build-tool" value="gradle" />
+    <plugin name="phonegap-plugin-push" source="npm" />-->
+    
+    <!--<gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
+    <plugin name="com.medlei.pushplugin" spec="0.1.2" source="pgb" />-->
+    
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+    <access origin="*"/>
+    
+    
+
+</widget>

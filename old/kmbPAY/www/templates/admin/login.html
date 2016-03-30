@@ -1,0 +1,34 @@
+<ion-view>
+
+  <ion-content>
+         <div class="list list-inset">
+            <label class="item item-input">
+                <input ng-model="userInfoLogin.email" type="text" placeholder="Email" />
+            </label>
+            <label class="item item-input">
+                <input ng-model="userInfoLogin.password" type="password" placeholder="Password"/>
+            </label>
+        </div>
+        <div class="no-padding">
+          <a class="button button-full button-positive"  ng-click="login(email, password)">Enter</a>
+        </div>
+        <div ui-sref="register">
+           Sign Up 
+        </div>
+       
+  </ion-content>
+
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

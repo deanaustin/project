@@ -1,0 +1,184 @@
+<ion-view view-title="">
+
+<ion-header-bar align-title="center" class="bar-stable">
+   <a class="button button-icon icon ion-navicon" ui-sref="app.menu"></a>
+
+  <h1 class="title">${{newOrder.total}}</h1>
+
+
+<div class="buttons">
+    <a class="button" ui-sref="app.menu.main.login" ng-if="!authData.password">login</a>
+    <a class="button button-icon icon ion-plus" ui-sref="app.menu.main.new"></a>
+</div>
+
+
+
+
+
+
+</ion-header-bar>
+
+
+<ion-content>
+
+
+
+
+
+
+
+
+
+
+          <div class="no-padding"  ng-repeat="x in orders | orderBy:'order'" ng-if="x.done != 'Picked-Up' && x.done != 'Cancel'" >
+
+            <a class="button button-full button-calm"  ng-click="assignViewOrder(x);" ng-class="{'button button-full button-calm': x.done === 'Order', 'button button-full button-royal': x.done === 'Preparing', 'button button-full button-assertive': x.done === 'Ready',  'button button-full button-balanced': x.done === 'Picked-Up',  'button button-full button-dark': x.done === 'Cancel'}">{{x.done}}</a>
+
+          </div>
+
+                 <div ng-if="orders.length > 0 && newOrder.customList.length === 0" class="item-text-wrap row" style="text-align: center; word-wrap: break-word;">
+            <div class="row">
+            <div class="col">
+
+             Order success! Pick up in store
+
+            </div>
+            </div>
+          </div>
+
+
+
+
+
+
+            <div class="list no-padding"  show-reorder="true">
+
+
+                <ion-item class="item-text-wrap" ng-if="addItemAdvice != null && orders.length === 0">
+                  <div class="row" style="text-align: center; word-wrap: break-word;">
+                    <div class="col">
+
+                     {{addItemAdvice}}
+
+                    </div>
+                  </div>
+                </ion-item>
+
+
+
+
+
+
+          <ion-item class="no-padding item-text-wrap"   ng-init="outerIndex=$index; show.yes = false"  ng-repeat="x in newOrder.customList track by $index| orderBy:'-order'"  >
+
+
+              <div class="row row-center" >
+
+                <div class="col" >
+                    {{x.stock}} <span ng-if="!(x.custom === '' || x.custom === null)" style="color:purple">{{x.custom}} </span><span style="color:blue">${{x.total}}</span>
+                </div>
+
+
+              </div>
+
+               <div class="row row-center" >
+
+                <div class="col" >
+                 <!--   <span ng-repeat="opt in x.option"><span ng-repeat="item in opt.item" ng-if="item.include === true">{{item.name}} &bull; </span></span> -->
+                </div>
+
+
+
+
+              </div>
+
+               <div class="row row-center" >
+
+                <div class="col">
+
+                </div>
+
+                <div style="color:green" ng-if="!(x.qty == 0)" class="col-1">
+                    {{x.qty}}
+                </div>
+
+
+                <div class="col-1" ng-click="viewStock($index, x)">
+                   <a class="button button-light ion-gear-a"></a>
+                </div>
+
+                <!--
+
+                <div class="col-1" ng-if="x.customId" ng-click="removeFromCustom(x)">
+                   <a class="button button-light ion-locked"></a>
+                </div>
+
+
+
+                <div class="col-1" ng-if="!x.customId" ng-click="addToCustom(x)">
+                   <a class="button button-light ion-unlocked"></a>
+                </div>   -->
+
+
+
+                <div class="col-1" ng-if="x.qty <= 1" ng-click="removeItem($index, x)">
+                   <a class="button button-light ion-close"></a>
+                </div>
+
+
+                <div class="col-1" ng-if="x.qty > 1" ng-click="deductMain(x)">
+                   <a class="button button-light ion-minus"></a>
+                </div>
+
+                <div class="col-1" ng-click="addMain(x)">
+                   <a class="button button-light ion-plus"></a>
+                </div>
+
+              </div>
+
+        </ion-item>
+
+
+
+
+         <a class="button button-stable button-full" ui-sref="app.menu.main.login" ng-if="!authData.password && newOrder.total > 0 ">Checkout</a>
+          <a class="button button-stable button-full" ui-sref="app.menu.main.confirm" ng-if="authData.password && newOrder.total > 0 ">Checkout</a>
+
+
+    </div>
+
+
+
+           <!--
+        <div class="row" style="text-align: center; color:blue">
+            <div class="col">
+
+             <a ui-sref="login">log in</a>
+
+            </div>
+          </div> -->
+
+          <div class="row" style="text-align: center; word-wrap: break-word;">
+            <div class="col">
+
+             wrapbuild &copy; 2016
+
+            </div>
+          </div>
+
+</ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

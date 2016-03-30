@@ -1,0 +1,58 @@
+<ion-view title="">
+    
+ <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+
+    </ion-header-bar>    
+
+  
+<ion-content>
+
+        <div class="list no-padding" show-reorder="true">
+          
+          
+           
+          <ion-item class="no-padding item-text-wrap" ng-init="outerIndex=$index"  ng-repeat="x in stock track by $index| orderBy:'-order'"  >
+            
+              <div class="row row-center" >
+              
+                <div class="col" ng-click="adjustStock(x)">
+                    {{x.stock}} 
+                </div>
+     
+              </div>
+             
+            
+        </ion-item>
+      
+        
+   
+          
+        
+     
+      
+       
+        
+    </div>
+   
+  
+   
+
+</ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

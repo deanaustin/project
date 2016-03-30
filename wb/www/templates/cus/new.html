@@ -1,0 +1,128 @@
+<ion-view title="" ng-init="show.yes = false">
+    
+ <ion-header-bar align-title="center" class="bar-stable">
+  
+      <a class="button button-icon icon ion-arrow-left-c" ng-click="parentGo()"></a>
+      
+      
+      <h1 class="title">Wrapbuild</h1>
+      
+      
+    </ion-header-bar>    
+
+  
+<ion-content >
+    
+        
+
+
+  
+
+        <div class="list no-padding" show-reorder="true">
+            
+            <div>
+            
+               <a class="button button-full button-assertive" ng-click="showCustom.yes = true" ng-if="searchParent === 'Root' && showCustom.yes === false">Saved</a>
+               <a class="button button-full button-stable" ng-click="showCustom.yes = false" ng-if="searchParent === 'Root' && showCustom.yes === true">Back</a>
+                           
+        </div>
+          
+           <div>
+            
+               <a class="button button-full button-stable" ng-if="searchParent != 'Root'" ng-click="searchParentF(searchParent); search.min = 0; show.yes = false">Back</a>
+                           
+        </div>
+          
+          <div ng-repeat="rec in searchList | orderBy:'min'"  >
+            
+               <a class="button button-full button-stable" ng-if="rec.name != 'All' && showCustom.yes === false" ng-click="searchChild(rec.parent, rec.name); search.min = rec.min; show.yes = false">{{rec.name}}</a>
+                           
+        </div>
+        
+        <div ng-if="someList.length === 0 && showCustom.yes === true" class="row" style="text-align: center; word-wrap: break-word;">
+            <div class="col">
+
+             You have no saved items. Add an item to your order, click on the gear and save
+
+            </div>
+          </div>
+          
+          <ion-item class="no-padding item-text-wrap" ng-init="outerIndex=$index"  ng-if="showCustom.yes === true && x.vend === vend.$id" ng-repeat="x in someList | orderBy:'order' track by $index"  >
+            
+              <div class="row row-center" >
+              
+                <div class="col" >
+                    {{x.stock}} <span ng-if="x.diy === true" style="color:purple">{{x.custom}} </span><span style="color:blue">${{diyTotal(x)}}</span>
+                </div>
+             
+                 <div class="col-1" ng-click="removeCustom(x)">
+                   <a class="button button-light ion-close"></a>
+                </div>
+                
+                <div class="col-1" ng-click="done(x)">
+         
+                   <a class="button button-light ion-plus"></a>
+              
+                </div>
+     
+              </div>
+             
+            
+        </ion-item>
+           
+          <ion-item class="no-padding item-text-wrap" ng-init="outerIndex=$index"  ng-if="x.search === search.min" ng-repeat="x in stock | orderBy:'order' track by $index"  >
+            
+              <div class="row row-center" >
+              
+                <div class="col" >
+                    {{x.stock}} <span ng-if="x.diy === true" style="color:purple">DIY </span><span style="color:blue">${{diyTotal(x)}}</span>
+                </div>
+             
+                
+                <div class="col-1" ng-click="done(x)">
+         
+                   <a class="button button-light ion-plus"></a>
+              
+                </div>
+     
+              </div>
+    
+             
+            
+        </ion-item>
+      
+      <div class="row" style="text-align: center; word-wrap: break-word;">
+            <div class="col">
+      
+             wrapbuild &copy; 2016
+              
+            </div>
+          </div>
+        
+   
+          
+        
+     
+      
+       
+        
+    </div>
+   
+  
+   
+
+</ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

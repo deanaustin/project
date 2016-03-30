@@ -1,0 +1,135 @@
+<ion-view>
+  <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+
+    </ion-header-bar>    
+    
+
+  
+<ion-content>
+  
+        <div class="bar bar-header item-input-inset">
+          <label class="item-input-wrapper">
+            <input ng-model="content.stock" type="text" placeholder="Write stock description" />
+          </label>
+        </div>
+        
+        <div class="bar bar-header item-input-inset">
+          <label class="item-input-wrapper">
+            <input ng-model="content.price" type="number" placeholder="Write stock base price" />
+          </label>
+          <a class="button button-icon ion-plus" ng-click="addStock(content)">
+          </a>
+
+        </div>
+        
+        <div class="list no-padding" show-reorder="true">    
+          <ion-item class="no-padding item-text-wrap" ng-repeat="stock in stock track by $index | orderBy:'-order'" ng-init="outerIndex = $index">
+            <div class="row row-center" ng-click="toggle(showOption)" ng-init="showOption.yes=false; items = {name:'', price:'', include:''}">
+              
+              <div class="col">
+                {{stock.stock}} ${{stock.price}}
+              </div>
+              <div class="col-1">
+                  <a class="button button-light ion-minus" ng-click="deductStock(stock)"></a>
+                </div>
+            </div>
+            
+            <div ng-if="showOption.yes">
+            
+            <div class="bar bar-header item-input-inset">
+              <label class="item-input-wrapper">
+                <input ng-model="option.name" type="text" placeholder="Write option description" />
+                
+              </label>
+              
+             
+            </div>
+            
+            <div class="bar bar-header item-input-inset">
+              <ion-checkbox ng-model="option.single">Single</ion-checkbox>
+              <a class="button button-icon ion-plus" ng-click="addOption(option, stock)">
+              </a>
+            </div>
+          
+            
+            <div class="list no-padding" show-reorder="true">    
+          <ion-item class="no-padding item-text-wrap"   ng-repeat="option in stock.option track by $index | orderBy:'-order'" ng-init="innerIndex = $index;">
+            <div class="row row-center" ng-click="toggle(showItem)" ng-init="showItem.yes = false">
+              
+              <div class="col">
+                {{option.name}} {{option.single}}
+              </div>
+              <div class="col-1">
+                  <a class="button button-light ion-minus" ng-click="deductOption(option)"></a>
+                </div>
+            </div>
+            
+            <div ng-if="showItem.yes">
+            
+            <div class="bar bar-header item-input-inset">
+              <label class="item-input-wrapper">
+                <input ng-model="item.name" type="text" placeholder="Write item description" />
+              </label>
+             
+            </div>
+            
+            <div class="bar bar-header item-input-inset">
+              <label class="item-input-wrapper">
+                <input ng-model="item.price" type="number" placeholder="Write item price" />
+              </label>
+  
+            </div>
+            
+            <div class="bar bar-header item-input-inset">
+              <ion-checkbox ng-model="item.include">Include</ion-checkbox>
+              <a class="button button-icon ion-plus" ng-click="addItem(item, option)">
+              </a>
+            </div>
+            
+            <div class="list no-padding" show-reorder="true">    
+          <ion-item class="no-padding item-text-wrap" ng-repeat="item in option.item track by $index | orderBy:'-order'" ng-init="innerIndex = $index">
+            <div class="row row-center">
+              
+              <div class="col">
+                {{item.name}} ${{item.price}} {{item.include}}
+              </div>
+              <div class="col-1">
+                  <a class="button button-light ion-minus" ng-click="deductItem(item)"></a>
+                </div>
+            </div>
+
+          
+          </ion-item>
+        </div>
+        
+        </div>  
+          
+          </ion-item>
+        </div>
+        
+        </div>
+      
+          </ion-item>
+      
+        </div>
+
+      </ion-content>
+     
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

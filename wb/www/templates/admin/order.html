@@ -1,0 +1,41 @@
+<ion-view>
+    
+    <ion-header-bar align-title="left" class="bar-stable">
+
+  
+      <div class="buttons">
+        <a class="button" ui-sref="app.admin.set">Menu</a>
+      </div>
+
+    </ion-header-bar>    
+    
+
+
+    <ion-content>
+      
+      <input ng-model="photo"
+       onchange="angular.element(this).scope().onChange(this)"
+       type="file" accept="image/*" />
+       
+       <img ng-src={{image.$value}} height="42" width="42"></img>
+       
+       <div>
+         {{image.$value}}
+       </div>
+       
+  </ion-content>
+
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

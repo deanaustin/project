@@ -1,0 +1,52 @@
+<ion-view>
+    
+    <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+
+
+      
+    </ion-header-bar>    
+    
+    
+    <ion-content>
+       
+        <ion-item class="item-text-wrap"> 
+            Total: <span style="color:green">${{newOrder.total}}</span>
+        </ion-item>
+        <ion-item class="item-text-wrap" ui-sref="app.main.confirm.reference"> 
+            Order No: {{newOrder.reference}}
+        </ion-item>
+        <ion-item class="item-text-wrap" ui-sref="app.main.confirm.time" ng-if="newOrder.ms == 9999999999999">
+            When: Now
+        </ion-item>
+        <ion-item class="item-text-wrap" ui-sref="app.main.confirm.time" ng-if="newOrder.ms != 9999999999999">
+            When: {{newOrder.ms | date:'EEE h mm a'}}
+        </ion-item>
+        <ion-item class="item-text-wrap" ui-sref="app.main.confirm.method">
+            Pay: {{newOrder.method}}
+        </ion-item>
+        <div class="no-padding">
+      
+              <a class="button button-full button-stable" ng-click="confirmsubmit()">Submit</a>
+        
+        </div>
+        
+    </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+

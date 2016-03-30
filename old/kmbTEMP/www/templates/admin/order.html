@@ -1,0 +1,212 @@
+<ion-view>
+    
+    <ion-header-bar align-title="left" class="bar-stable">
+
+  
+      <div class="buttons">
+        <a class="button" ui-sref="app.order.set">Menu</a>
+      </div>
+
+    </ion-header-bar>    
+    
+
+
+    <ion-content>
+      
+        <ion-checkbox ng-model="setting.play">Play music</ion-checkbox>
+
+        <div class="list no-padding" show-reorder="true">
+              <ion-item class="no-padding item-text-wrap" ng-init="show.yes=false" ng-if="x.ms == 9999999999999 && (x.done === 'Order' || x.done === 'Preparing' || x.done === 'Ready')" ng-repeat="x in order | orderBy:'order'"  >
+            <div class="row row-center">
+               <div class="col-1">
+                 
+                <a class="button button-full button-calm"  ng-click="prepared(x);" ng-class="{'button button-full button-calm': x.done === 'Order', 'button button-full button-royal': x.done === 'Preparing', 'button button-full button-assertive': x.done === 'Ready',  'button button-full button-balanced': x.done === 'Picked-Up',  'button button-full button-dark': x.done === 'Cancel'}">{{x.done}}</a>
+              </div>
+               <div class="col" ng-click="toggle(show)">
+                    {{x.reference}}
+                </div>
+              </div>
+        <div ng-if="show.yes" ng-click="toggle(show)">
+              
+            <div class="row">
+              <div class="col">
+            <div class="row">
+              <div class="col" ng-if="x.ms != 9999999999999">
+                  {{x.ms | date:'EEE h mm a'}}
+              </div>
+              <div class="col" ng-if="x.ms == 9999999999999">
+                  Now
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                  {{x.order | date: 'HH:mm'}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{x.reference}}
+              </div>
+            </div>
+       
+             <div class="row">
+              <div class="col">
+                {{x.mobile}}
+              </div>
+               </div>
+               <div class="row">
+              <div class="col">
+                ${{x.total}}
+              </div>
+               </div>
+               
+           
+              
+              </div>
+              </div>
+          
+
+              <div class="list no-padding" show-reorder="true">    
+                 <ion-item class="no-padding item-text-wrap" ng-init="outerIndex=$index"  ng-if= "y.qty != 0" ng-repeat="y in x.customList track by $index| orderBy:'ms'"  >
+                
+                  <div class="row">
+              <div class="col">
+                 {{y.qty}} {{y.custom}} - {{y.stock}} 
+              </div>
+               </div>
+                  
+                    <div ng-repeat="option in y.option track by $index">
+         <div class="row">
+              
+       
+                        <div class="col">
+                           <ion-item class="no-padding item-text-wrap item-full"  ng-init = "showItem.yes = item.include" ng-repeat="item in option.item track by $index" >
+                                <div ng-if="showItem.yes == true" >
+                                 <ion-checkbox ng-model="item.include" ng-click="toggleItem(item, {yes:true});">
+                                     {{item.name}}
+                                </ion-checkbox>
+                                 </div>
+                            </ion-item>
+                            
+                      </div>
+                      </div>
+        </div>
+                </ion-item>
+           
+            </div>
+            
+            
+          </div>
+      
+            
+          </ion-item>
+          
+          
+          
+                  <ion-item class="no-padding item-text-wrap" ng-init="show.yes=false" ng-if="x.ms != 9999999999999 && (x.done === 'Order' || x.done === 'Preparing' || x.done === 'Ready')" ng-repeat="x in order | orderBy:'ms'"  >
+            <div class="row row-center">
+               <div class="col-1">
+                 
+                <a class="button button-full button-calm"  ng-click="prepared(x);" ng-class="{'button button-full button-calm': x.done === 'Order', 'button button-full button-royal': x.done === 'Preparing', 'button button-full button-assertive': x.done === 'Ready',  'button button-full button-balanced': x.done === 'Picked-Up',  'button button-full button-dark': x.done === 'Cancel'}">{{x.done}}</a>
+              </div>
+               <div class="col" ng-click="toggle(show)">
+                    {{x.reference}}
+                </div>
+              </div>
+        <div ng-if="show.yes" ng-click="toggle(show)">
+              
+            <div class="row">
+              <div class="col">
+            <div class="row">
+              <div class="col" ng-if="x.ms != 9999999999999">
+                  {{x.ms | date:'EEE h mm a'}}
+              </div>
+              <div class="col" ng-if="x.ms == 9999999999999">
+                  Now
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                  {{x.order | date: 'HH:mm'}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{x.reference}}
+              </div>
+            </div>
+       
+             <div class="row">
+              <div class="col">
+                {{x.mobile}}
+              </div>
+               </div>
+               <div class="row">
+              <div class="col">
+                ${{x.total}}
+              </div>
+               </div>
+               
+           
+              
+              </div>
+              </div>
+          
+
+              <div class="list no-padding" show-reorder="true">    
+                 <ion-item class="no-padding item-text-wrap" ng-init="outerIndex=$index"  ng-if= "y.qty != 0" ng-repeat="y in x.customList track by $index| orderBy:'ms'"  >
+                
+                  <div class="row">
+              <div class="col">
+                 {{y.qty}} {{y.custom}} - {{y.stock}} 
+              </div>
+               </div>
+                  
+                    <div ng-repeat="option in y.option track by $index">
+         <div class="row">
+              
+       
+                        <div class="col">
+                           <ion-item class="no-padding item-text-wrap item-full"  ng-init = "showItem.yes = item.include" ng-repeat="item in option.item track by $index" >
+                                <div ng-if="showItem.yes == true" >
+                                 <ion-checkbox ng-model="item.include" ng-click="toggleItem(item, {yes:true});">
+                                     {{item.name}}
+                                </ion-checkbox>
+                                 </div>
+                            </ion-item>
+                            
+                      </div>
+                      </div>
+        </div>
+                </ion-item>
+           
+            </div>
+            
+            
+          </div>
+      
+            
+          </ion-item> 
+          
+          
+          
+          
+       
+        </div>
+ 
+  </ion-content>
+
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+    
+

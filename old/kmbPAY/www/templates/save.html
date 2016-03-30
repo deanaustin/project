@@ -1,0 +1,63 @@
+<ion-view>
+    
+    <ion-header-bar align-title="left" class="bar-stable">
+  
+      <div class="buttons">
+        <a class="button" ng-click="parentGo()">Back</a>
+      </div>
+      <h1 class="title">${{stockCus.total}}</h1>
+      <div class="buttons">
+        <a class="button" ng-click="save()">Save</a>
+      </div>
+      
+    </ion-header-bar>    
+    
+
+
+    
+    
+    
+    <ion-content>
+       
+          
+
+        <div ng-repeat="option in stockCus.option track by $index">
+             {{option.name}}
+         <div class="row">
+              
+       
+                        <div class="col">
+                           <ion-item class="no-padding item-text-wrap item-full" ng-repeat="item in option.item track by $index" >
+                     
+                                 <ion-checkbox ng-model="item.include" ng-click="priceAdjust(stockCus, item)">
+                                     {{item.name}} <span ng-if="item.price != 0">${{item.price}}<span>
+                                </ion-checkbox>
+                             
+                            </ion-item>
+                            
+                      </div>
+                      </div>
+        </div>
+               
+        
+
+    
+        
+    </ion-content>
+    
+    
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
